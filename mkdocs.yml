@@ -82,6 +82,8 @@ nav:
       - The desktop: use/desktop.md
       - The apps: use/apps.md
       - The shell: use/shell.md
+      - The network: use/networking.md
+      - The settings files: use/settings-files.md
   - Write programs:
       - develop/README.md
       - Set up the build tools: develop/setup.md
