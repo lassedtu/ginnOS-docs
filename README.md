@@ -10,6 +10,7 @@ the ginnOS repository, and the rules for them are in
 | --- | --- |
 | `mkdocs.yml` | the site: the theme, the Markdown extensions, the navigation |
 | `requirements.txt` | the mkdocs and Material versions |
+| `theme/stylesheets/ginnos.css` | the ginnOS look: the colours, fonts and radii of idunn (`src/lib/idunn/theme.c`) on top of Material |
 | `.github/workflows/pages.yml` | builds the site and publishes it on GitHub Pages |
 
 ## See the site on your computer

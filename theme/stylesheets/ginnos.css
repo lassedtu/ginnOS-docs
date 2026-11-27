@@ -1,0 +1,247 @@
+/* the ginnOS look for the docs site: the idunn tokens of
+   src/lib/idunn/theme.c (zinc, the rose accent, Inter, JetBrains Mono,
+   a 6 px radius and 10 px for cards). */
+
+:root {
+  --g-radius: 6px;
+  --g-radius-lg: 10px;
+}
+
+[data-md-color-scheme="default"] {
+  --g-background: #ffffff;
+  --g-foreground: #09090b;
+  --g-sidebar: #fafafa;
+  --g-muted: #f4f4f5;
+  --g-muted-foreground: #71717a;
+  --g-border: #e4e4e7;
+  --g-accent: #e11d48;
+
+  --md-default-bg-color: var(--g-background);
+  --md-default-fg-color: var(--g-foreground);
+  --md-default-fg-color--light: var(--g-muted-foreground);
+  --md-default-fg-color--lighter: #a1a1aa;
+  --md-default-fg-color--lightest: var(--g-border);
+  --md-primary-fg-color: var(--g-background);
+  --md-primary-bg-color: var(--g-foreground);
+  --md-primary-bg-color--light: var(--g-muted-foreground);
+  --md-accent-fg-color: var(--g-accent);
+  --md-typeset-a-color: var(--g-accent);
+  --md-code-bg-color: var(--g-muted);
+  --md-code-fg-color: #18181b;
+  --md-footer-bg-color: var(--g-background);
+  --md-footer-bg-color--dark: var(--g-background);
+  --md-footer-fg-color: var(--g-foreground);
+  --md-footer-fg-color--light: var(--g-muted-foreground);
+  --md-footer-fg-color--lighter: #a1a1aa;
+}
+
+[data-md-color-scheme="slate"] {
+  --g-background: #09090b;
+  --g-foreground: #fafafa;
+  --g-sidebar: #0b0b0d;
+  --g-muted: #18181b;
+  --g-muted-foreground: #a1a1aa;
+  --g-border: rgba(255, 255, 255, 0.1);
+  --g-accent: #f43f5e;
+
+  --md-hue: 240;
+  --md-default-bg-color: var(--g-background);
+  --md-default-fg-color: var(--g-foreground);
+  --md-default-fg-color--light: var(--g-muted-foreground);
+  --md-default-fg-color--lighter: #71717a;
+  --md-default-fg-color--lightest: var(--g-border);
+  --md-primary-fg-color: var(--g-background);
+  --md-primary-bg-color: var(--g-foreground);
+  --md-primary-bg-color--light: var(--g-muted-foreground);
+  --md-accent-fg-color: var(--g-accent);
+  --md-typeset-a-color: var(--g-accent);
+  --md-code-bg-color: var(--g-muted);
+  --md-code-fg-color: #e4e4e7;
+  --md-footer-bg-color: var(--g-background);
+  --md-footer-bg-color--dark: var(--g-background);
+  --md-footer-fg-color: var(--g-foreground);
+  --md-footer-fg-color--light: var(--g-muted-foreground);
+  --md-footer-fg-color--lighter: #71717a;
+}
+
+/* the header: the page colour with a thin line under it, no shadow */
+.md-header,
+.md-header--shadow {
+  background-color: var(--g-background);
+  color: var(--g-foreground);
+  box-shadow: none;
+  border-bottom: 1px solid var(--g-border);
+}
+.md-header__title {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.md-header__button.md-logo {
+  display: none;
+}
+
+/* the search field: a muted pill */
+.md-search__form {
+  background-color: var(--g-muted);
+  border: 1px solid var(--g-border);
+  border-radius: var(--g-radius);
+}
+.md-search__form:hover {
+  background-color: var(--g-muted);
+}
+.md-search__input,
+.md-search__input::placeholder,
+.md-search__icon {
+  color: var(--g-muted-foreground);
+}
+
+/* the navigation: quiet text, the current page in a muted box */
+.md-nav {
+  font-size: 0.7rem;
+}
+.md-nav__title {
+  color: var(--g-foreground);
+  font-weight: 600;
+}
+.md-nav__link {
+  color: var(--g-muted-foreground);
+}
+.md-nav__link:hover,
+.md-nav__link:focus {
+  color: var(--g-foreground);
+}
+.md-nav__item--section > .md-nav__link {
+  color: var(--g-foreground);
+  font-weight: 600;
+}
+.md-nav--primary .md-nav__link--active {
+  color: var(--g-foreground);
+  font-weight: 500;
+  background-color: var(--g-muted);
+  border-radius: var(--g-radius);
+  margin-left: -0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+.md-nav--secondary .md-nav__link--active {
+  color: var(--g-foreground);
+}
+
+/* the text */
+.md-typeset {
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--g-foreground);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.md-typeset h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.md-typeset h2 {
+  font-size: 1.2rem;
+  margin-top: 2.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--g-border);
+}
+.md-typeset a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--g-accent) 35%, transparent);
+  text-underline-offset: 0.2em;
+}
+.md-typeset a:hover {
+  text-decoration-color: var(--g-accent);
+}
+.md-typeset .headerlink {
+  text-decoration: none;
+}
+
+/* code: inline code in a muted box, blocks in a card with a border */
+.md-typeset code {
+  border-radius: calc(var(--g-radius) - 2px);
+  font-size: 0.85em;
+}
+.md-typeset pre > code {
+  border: 1px solid var(--g-border);
+  border-radius: var(--g-radius-lg);
+  padding: 0.9em 1.1em;
+}
+.md-typeset .highlight {
+  border-radius: var(--g-radius-lg);
+}
+
+/* tables: a border around, a muted head, no stripes */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--g-border);
+  border-radius: var(--g-radius-lg);
+  box-shadow: none;
+  font-size: 0.75rem;
+  overflow: hidden;
+}
+.md-typeset table:not([class]) th {
+  background-color: var(--g-muted);
+  color: var(--g-foreground);
+  font-weight: 600;
+}
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  border-top: 1px solid var(--g-border);
+}
+.md-typeset table:not([class]) tr:first-child th {
+  border-top: none;
+}
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* admonitions: a card with a coloured edge */
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 1px;
+  border-radius: var(--g-radius-lg);
+  box-shadow: none;
+  font-size: 0.75rem;
+}
+
+/* the footer: the page colour with a thin line above it */
+.md-footer,
+.md-footer-meta {
+  background-color: var(--g-background);
+}
+.md-footer {
+  border-top: 1px solid var(--g-border);
+}
+.md-copyright {
+  color: var(--g-muted-foreground);
+}
+
+/* no site name above the navigation on wide screens: the header has it */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary > .md-nav__title {
+    display: none;
+  }
+}
+
+/* the copy button: no box until the pointer is on it */
+.md-typeset .md-clipboard {
+  color: var(--g-muted-foreground);
+  background-color: transparent;
+}
+.md-typeset .md-clipboard:hover {
+  color: var(--g-foreground);
+}
+
+/* names in the first column of a table stay on one line */
+.md-typeset table:not([class]) td:first-child code {
+  white-space: nowrap;
+  word-break: normal;
+}
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  padding: 0.6em 1em;
+}
