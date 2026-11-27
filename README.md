@@ -46,7 +46,12 @@ The workflow builds the site when one of these occurs:
   `docs/`. The event carries the commit, and the site builds from that
   commit.
 - A push to `main` of this repository.
-- You start the workflow by hand (Actions, pages, Run workflow).
+- You start the workflow by hand (Actions, pages, Run workflow). The
+  `ref` field selects the ginnOS branch or commit; the default is `main`:
+
+  ```sh
+  gh workflow run pages --repo lassedtu/ginnOS-docs -f ref=docs
+  ```
 
 When you add or remove a page in ginnOS, change `nav` in `mkdocs.yml`
 too. The build uses `strict: true`, so it stops on a broken link or on a
