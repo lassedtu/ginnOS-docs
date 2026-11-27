@@ -245,3 +245,123 @@
 .md-typeset table:not([class]) th {
   padding: 0.6em 1em;
 }
+
+/* a sidebar as on Read the Docs: a full-height column at the left edge
+   with its own colour, the sections that open and close, and the
+   headings of the current page under it (toc.integrate) */
+[data-md-color-scheme="default"] {
+  --g-sidebar: #f6f6f7;
+}
+[data-md-color-scheme="slate"] {
+  --g-sidebar: #0b0b0d;
+}
+
+@media screen and (min-width: 76.25em) {
+  :root {
+    --g-sidebar-width: 17rem;
+  }
+
+  .md-header__inner.md-grid,
+  .md-main__inner.md-grid {
+    max-width: none;
+    margin: 0;
+  }
+  .md-header__inner.md-grid {
+    padding-left: 0.6rem;
+  }
+  .md-main__inner {
+    margin-top: 0;
+  }
+
+  .md-sidebar--primary {
+    width: var(--g-sidebar-width);
+    padding: 0;
+    background-color: var(--g-sidebar);
+    border-right: 1px solid var(--g-border);
+    align-self: flex-start;
+    height: calc(100vh - 2.4rem);
+    top: 2.4rem;
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    margin: 0;
+    height: 100%;
+    max-height: none;
+  }
+  .md-sidebar--primary .md-sidebar__inner {
+    padding: 1.4rem 0.8rem 2rem 1rem;
+  }
+
+  .md-content {
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+  .md-content__inner {
+    margin: 0 2rem;
+    padding-top: 1.6rem;
+  }
+}
+
+/* the tree: a section title opens and closes; its pages and the
+   headings of the current page hang under it with a thin line */
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
+  color: var(--g-foreground);
+  font-weight: 600;
+}
+.md-nav--primary .md-nav__item .md-nav {
+  margin-left: 0.15rem;
+}
+.md-nav--primary .md-nav__item--nested > .md-nav > .md-nav__list,
+.md-nav--primary .md-nav__link--active + .md-nav > .md-nav__list,
+.md-nav--primary .md-nav--secondary > .md-nav__list {
+  border-left: 1px solid var(--g-border);
+  margin-left: 0.4rem;
+  padding-left: 0.5rem;
+}
+.md-nav--primary .md-nav__link {
+  margin-top: 0.15rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--g-radius);
+}
+.md-nav--primary .md-nav__link:hover {
+  background-color: var(--g-muted);
+}
+.md-nav--primary .md-nav__link--active {
+  margin-left: 0;
+}
+.md-nav--primary .md-nav--secondary .md-nav__link {
+  font-size: 0.65rem;
+  margin-top: 0.05rem;
+}
+.md-nav--primary .md-nav--secondary .md-nav__link--active {
+  background-color: transparent;
+  color: var(--g-accent);
+  font-weight: 500;
+}
+.md-nav__icon {
+  color: var(--g-muted-foreground);
+}
+/* a section row is a link around a link and the arrow: pad only the
+   inner ones, so the sections line up with the pages */
+.md-nav--primary .md-nav__container {
+  padding: 0;
+}
+.md-nav--primary .md-nav__container:hover {
+  background-color: transparent;
+}
+.md-nav--primary .md-nav__container > .md-nav__link {
+  margin-top: 0;
+}
+/* the current page and the pointer: a shade that shows on the sidebar */
+[data-md-color-scheme="default"] {
+  --g-nav-active: #e9e9ec;
+}
+[data-md-color-scheme="slate"] {
+  --g-nav-active: #1f1f23;
+}
+.md-nav--primary .md-nav__link:hover,
+.md-nav--primary .md-nav__link--active {
+  background-color: var(--g-nav-active);
+}
+.md-nav--primary .md-nav--secondary .md-nav__link:hover {
+  background-color: transparent;
+}
