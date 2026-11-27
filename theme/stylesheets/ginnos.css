@@ -264,13 +264,16 @@
   .md-header__inner.md-grid,
   .md-main__inner.md-grid {
     max-width: none;
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
   .md-header__inner.md-grid {
     padding-left: 0.6rem;
   }
-  .md-main__inner {
-    margin-top: 0;
+  /* keep Material's top margin of the main area: its scroll spy counts
+     on it. the sidebar goes up by the same amount to meet the header */
+  .md-sidebar--primary {
+    margin-top: -1.5rem;
   }
 
   .md-sidebar--primary {
@@ -297,7 +300,7 @@
   }
   .md-content__inner {
     margin: 0 2rem;
-    padding-top: 1.6rem;
+    padding-top: 0.4rem;
   }
 }
 
@@ -369,4 +372,14 @@
 .md-nav--primary .md-nav__container > label.md-nav__link,
 .md-nav--primary .md-nav__container > label.md-nav__link:hover {
   background-color: transparent;
+}
+
+/* diagrams in the colours of the page */
+[data-md-color-scheme] {
+  --md-mermaid-font-family: var(--md-text-font-family), sans-serif;
+  --md-mermaid-node-bg-color: var(--g-muted);
+  --md-mermaid-node-fg-color: var(--g-foreground);
+  --md-mermaid-edge-color: var(--g-muted-foreground);
+  --md-mermaid-label-bg-color: var(--g-background);
+  --md-mermaid-label-fg-color: var(--g-muted-foreground);
 }
