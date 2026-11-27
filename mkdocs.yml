@@ -100,4 +100,6 @@ nav:
       - Signals: internals/signals.md
       - The file systems: internals/filesystems.md
       - The network stack: internals/network.md
+      - The desktop stack: internals/desktop.md
+      - Testing: internals/testing.md
   - How to write these docs: WRITING.md
