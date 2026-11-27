@@ -91,6 +91,7 @@ nav:
       - The ginnOS toolchain: develop/toolchain.md
       - libc: develop/libc.md
       - The libraries: develop/libraries.md
+      - Port a program: develop/porting.md
   - How ginnOS works:
       - internals/README.md
       - The architecture: internals/architecture.md
