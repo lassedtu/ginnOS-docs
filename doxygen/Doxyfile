@@ -1,0 +1,12 @@
+# The Doxygen settings of the site: the settings of ginnOS
+# (tools/docs/Doxyfile), with the theme of the site and the output folder.
+# Run Doxygen in the ginnOS folder, with SITE set to the site folder:
+#   SITE=$PWD; (cd ginnOS && SITE=$SITE doxygen $SITE/doxygen/Doxyfile)
+
+@INCLUDE               = tools/docs/Doxyfile
+
+OUTPUT_DIRECTORY       = $(SITE)/build/doxygen
+HTML_EXTRA_STYLESHEET  = $(SITE)/theme/doxygen/doxygen-awesome.css \
+                         $(SITE)/theme/doxygen/doxygen-awesome-sidebar-only.css \
+                         $(SITE)/theme/doxygen/ginnos.css
+WARN_LOGFILE           = $(SITE)/build/doxygen/warnings.txt

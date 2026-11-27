@@ -1,5 +1,6 @@
-# build the site from docs/ of lassedtu/ginnOS and publish it on GitHub
-# Pages. ginnOS sends the docs-changed event when its docs change on main.
+# build the site from docs/ of lassedtu/ginnOS, and the reference with
+# Doxygen from its source, and publish both on GitHub Pages. ginnOS sends
+# the docs-changed event when its docs or its source change on main.
 
 name: pages
 
@@ -35,7 +36,10 @@ jobs:
           repository: lassedtu/ginnOS
           ref: ${{ github.event.client_payload.sha || inputs.ref || 'main' }}
           path: ginnOS
-          sparse-checkout: docs
+          sparse-checkout: |
+            docs
+            src
+            tools/docs
 
       - uses: actions/setup-python@v5
         with:
@@ -44,6 +48,21 @@ jobs:
       - run: pip install -r requirements.txt
 
       - run: mkdocs build
+
+      # Ubuntu has Doxygen 1.9, which is too old for doxygen-awesome-css.
+      - name: Install Doxygen
+        env:
+          DOXYGEN_VERSION: 1.18.0
+        run: |
+          curl -fsSL -o doxygen.tar.gz "https://github.com/doxygen/doxygen/releases/download/Release_${DOXYGEN_VERSION//./_}/doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz"
+          tar -xzf doxygen.tar.gz
+          echo "$PWD/doxygen-${DOXYGEN_VERSION}/bin" >> "$GITHUB_PATH"
+
+      - name: Make the reference
+        run: |
+          mkdir -p build/doxygen
+          (cd ginnOS && SITE="$GITHUB_WORKSPACE" doxygen "$GITHUB_WORKSPACE/doxygen/Doxyfile")
+          cp -R build/doxygen/html site/reference
 
       - uses: actions/upload-pages-artifact@v3
         with:

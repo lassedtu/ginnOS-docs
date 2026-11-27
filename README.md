@@ -11,7 +11,10 @@ the ginnOS repository, and the rules for them are in
 | `mkdocs.yml` | the site: the theme, the Markdown extensions, the navigation |
 | `requirements.txt` | the mkdocs and Material versions |
 | `theme/stylesheets/ginnos.css` | the ginnOS look: the colours, fonts and radii of idunn (`src/lib/idunn/theme.c`) on top of Material |
-| `.github/workflows/pages.yml` | builds the site and publishes it on GitHub Pages |
+| `hooks/cachebust.py` | adds a hash of each stylesheet to its address, so that a browser does not mix old and new stylesheets |
+| `doxygen/Doxyfile` | the reference: the Doxygen settings of ginnOS (`tools/docs/Doxyfile`), with the stylesheets below and the output folder |
+| `theme/doxygen/` | the look of the reference: [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) 2.5.0 (MIT, see its `LICENSE`) and `ginnos.css`, which gives it the colours and fonts of the site |
+| `.github/workflows/pages.yml` | builds the site and the reference, and publishes them on GitHub Pages |
 
 ## See the site on your computer
 
@@ -38,13 +41,22 @@ the ginnOS repository, and the rules for them are in
 
    The site changes when you save a page.
 
+4. To see the reference, install Doxygen 1.17 or later, then run:
+
+   ```sh
+   SITE=$PWD; (cd ginnOS && SITE=$SITE doxygen $SITE/doxygen/Doxyfile)
+   ```
+
+   and open `build/doxygen/html/index.html`. On the published site the
+   reference is at `/reference/`.
+
 ## How the site gets published
 
 The workflow builds the site when one of these occurs:
 
 - ginnOS sends the `docs-changed` event. Its workflow
   `.github/workflows/docs.yml` does that when a push to `main` changes
-  `docs/`. The event carries the commit, and the site builds from that
+  `docs/`, `src/` or `tools/docs/`. The event carries the commit, and the site builds from that
   commit.
 - A push to `main` of this repository.
 - You start the workflow by hand (Actions, pages, Run workflow). The
