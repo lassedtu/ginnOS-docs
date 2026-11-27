@@ -105,5 +105,5 @@ nav:
       - The desktop stack: internals/desktop.md
       - The drivers: internals/drivers.md
       - Testing: internals/testing.md
-  - Reference: https://lassedtu.github.io/ginnOS-docs/reference/
+  - Reference (Doxygen Generated): https://lassedtu.github.io/ginnOS-docs/reference/
   - How to write these docs: WRITING.md
