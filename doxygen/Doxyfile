@@ -1,7 +1,7 @@
 # The Doxygen settings of the site: the settings of ginnOS
 # (tools/docs/Doxyfile), with the theme of the site and the output folder.
-# Run Doxygen in the ginnOS folder, with SITE set to the site folder:
-#   SITE=$PWD; (cd ginnOS && SITE=$SITE doxygen $SITE/doxygen/Doxyfile)
+# doxygen/build.sh runs Doxygen with these settings and sets SITE to the
+# site folder. It also makes the header that HTML_HEADER names.
 
 @INCLUDE               = tools/docs/Doxyfile
 
@@ -10,3 +10,4 @@ HTML_EXTRA_STYLESHEET  = $(SITE)/theme/doxygen/doxygen-awesome.css \
                          $(SITE)/theme/doxygen/doxygen-awesome-sidebar-only.css \
                          $(SITE)/theme/doxygen/ginnos.css
 WARN_LOGFILE           = $(SITE)/build/doxygen/warnings.txt
+HTML_HEADER            = $(SITE)/build/doxygen/header.html

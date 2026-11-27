@@ -13,6 +13,7 @@ the ginnOS repository, and the rules for them are in
 | `theme/stylesheets/ginnos.css` | the ginnOS look: the colours, fonts and radii of idunn (`src/lib/idunn/theme.c`) on top of Material |
 | `hooks/cachebust.py` | adds a hash of each stylesheet to its address, so that a browser does not mix old and new stylesheets |
 | `doxygen/Doxyfile` | the reference: the Doxygen settings of ginnOS (`tools/docs/Doxyfile`), with the stylesheets below and the output folder |
+| `doxygen/build.sh` | runs Doxygen, and adds a link back to the manual to the header of each page |
 | `theme/doxygen/` | the look of the reference: [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) 2.5.0 (MIT, see its `LICENSE`) and `ginnos.css`, which gives it the colours and fonts of the site |
 | `.github/workflows/pages.yml` | builds the site and the reference, and publishes them on GitHub Pages |
 
@@ -44,7 +45,7 @@ the ginnOS repository, and the rules for them are in
 4. To see the reference, install Doxygen 1.17 or later, then run:
 
    ```sh
-   SITE=$PWD; (cd ginnOS && SITE=$SITE doxygen $SITE/doxygen/Doxyfile)
+   doxygen/build.sh
    ```
 
    and open `build/doxygen/html/index.html`. On the published site the

@@ -63,8 +63,7 @@ jobs:
       - name: Make the reference
         if: hashFiles('ginnOS/tools/docs/Doxyfile') != ''
         run: |
-          mkdir -p build/doxygen
-          (cd ginnOS && SITE="$GITHUB_WORKSPACE" doxygen "$GITHUB_WORKSPACE/doxygen/Doxyfile")
+          doxygen/build.sh
           cp -R build/doxygen/html site/reference
 
       - uses: actions/upload-pages-artifact@v3

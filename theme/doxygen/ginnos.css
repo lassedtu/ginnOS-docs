@@ -64,3 +64,14 @@ html.dark-mode {
     --tablehead-background: #18181b;
     --menu-selected-background: #1f1f23;
 }
+
+#ginnos-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 0 6px -3px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+}
