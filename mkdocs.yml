@@ -95,11 +95,13 @@ nav:
   - How ginnOS works:
       - internals/README.md
       - The architecture: internals/architecture.md
+      - The boot: internals/boot.md
       - Memory: internals/memory.md
       - Processes and the scheduler: internals/processes.md
       - Signals: internals/signals.md
       - The file systems: internals/filesystems.md
       - The network stack: internals/network.md
+      - Random numbers: internals/random.md
       - The desktop stack: internals/desktop.md
       - The drivers: internals/drivers.md
       - Testing: internals/testing.md
