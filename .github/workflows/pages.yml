@@ -51,6 +51,7 @@ jobs:
 
       # Ubuntu has Doxygen 1.9, which is too old for doxygen-awesome-css.
       - name: Install Doxygen
+        if: hashFiles('ginnOS/tools/docs/Doxyfile') != ''
         env:
           DOXYGEN_VERSION: 1.18.0
         run: |
@@ -58,7 +59,9 @@ jobs:
           tar -xzf doxygen.tar.gz
           echo "$PWD/doxygen-${DOXYGEN_VERSION}/bin" >> "$GITHUB_PATH"
 
+      # A ginnOS commit from before the reference has no Doxyfile.
       - name: Make the reference
+        if: hashFiles('ginnOS/tools/docs/Doxyfile') != ''
         run: |
           mkdir -p build/doxygen
           (cd ginnOS && SITE="$GITHUB_WORKSPACE" doxygen "$GITHUB_WORKSPACE/doxygen/Doxyfile")
