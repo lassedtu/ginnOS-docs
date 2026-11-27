@@ -89,6 +89,8 @@ nav:
       - Set up the build tools: develop/setup.md
       - Build ginnOS: develop/building.md
       - The ginnOS toolchain: develop/toolchain.md
+      - libc: develop/libc.md
+      - The libraries: develop/libraries.md
   - How ginnOS works:
       - internals/README.md
       - The architecture: internals/architecture.md
