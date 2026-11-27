@@ -75,3 +75,9 @@ html.dark-mode {
     color: var(--primary-color);
     text-decoration: none;
 }
+
+/* The side bar theme gives the top area a fixed height. The link back to
+   the manual makes the content of that area taller. */
+html {
+    --top-height: 146px;
+}
