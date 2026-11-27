@@ -54,6 +54,9 @@ theme:
         icon: material/weather-sunny
         name: Light mode
 
+hooks:
+  - hooks/cachebust.py
+
 extra_css:
   - stylesheets/ginnos.css
 

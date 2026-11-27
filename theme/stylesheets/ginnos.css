@@ -365,3 +365,8 @@
 .md-nav--primary .md-nav--secondary .md-nav__link:hover {
   background-color: transparent;
 }
+/* the arrow of the open section is not a page: no shade on it */
+.md-nav--primary .md-nav__container > label.md-nav__link,
+.md-nav--primary .md-nav__container > label.md-nav__link:hover {
+  background-color: transparent;
+}
